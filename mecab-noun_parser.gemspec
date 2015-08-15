@@ -14,6 +14,8 @@ Gem::Specification.new do |s|
 
   s.files       = `git ls-files -z`.split("\x0")
 
+  s.add_dependency 'mecab'
+
   s.add_development_dependency 'bundler'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'
