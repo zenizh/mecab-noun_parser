@@ -1,5 +1,3 @@
-require 'mecab/noun_parser/version'
-
 module MeCab
   class NounParser
     def initialize(**options)
