@@ -3,15 +3,15 @@
 [![Build Status](https://travis-ci.org/kami30k/mecab-noun_parser.svg)](https://travis-ci.org/kami30k/mecab-noun_parser)
 [![Gem Version](https://badge.fury.io/rb/mecab-noun_parser.svg)](http://badge.fury.io/rb/mecab-noun_parser)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mecab/noun_parser`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem is a noun parser for [MeCab](https://github.com/markburns/mecab) gem.
+This counts the number of nouns, and arranging it in descending order.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
+gem 'mecab'
 gem 'mecab-noun_parser'
 ```
 
@@ -19,20 +19,46 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install mecab-noun_parser
-
 ## Usage
 
-TODO: Write usage instructions here
+Here's a simple example to use:
 
-## Development
+```ruby
+require 'mecab'
+require 'mecab-noun_parser'
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+parser = MeCab::NounParser.new
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+parser << 'Rubyは、手軽なオブジェクト指向プログラミングを実現するための種々の機能を持つオブジェクト指向スクリプト言語です。本格的なオブジェクト指向言語であるSmalltalk、EiffelやC++などでは大げさに思われるような領域でのオブジェクト指向プログラミングを支援することを目的としています。もちろん通常の手続き型のプログラミングも可能です。'
+parser << 'Rubyはテキスト処理関係の能力などに優れ、Perlと同じくらい強力です。さらにシンプルな文法と、例外処理やイテレータなどの機構によって、より分かりやすいプログラミングが出来ます。'
+parser << 'まあ、簡単にいえばPerlのような手軽さで「楽しく」オブジェクト指向しようという言語です。どうぞ使ってみてください。'
+parser << 'Rubyはまつもと ゆきひろが個人で開発しているフリーソフトウェアです。'
+
+p parser.parse.nouns
+```
+
+This results is as follows:
+
+```ruby
+[
+  {:noun=>"Ruby", :count=>3},
+  {:noun=>"オブジェクト指向プログラミング", :count=>2},
+  {:noun=>"Perl", :count=>2},
+    :
+  {:noun=>"個人", :count=>1},
+  {:noun=>"開発", :count=>1},
+  {:noun=>"フリーソフトウェア", :count=>1}
+]
+```
+
+### Except some words
+
+If you don't want to include some words, you should initialize with `:except` option:
+
+```ruby
+parser = MeCab::NounParser.new(except: ['Smalltalk', 'Eiffel', ...])
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mecab-noun_parser.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kami30k/mecab-noun_parser.
