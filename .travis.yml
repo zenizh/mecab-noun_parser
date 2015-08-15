@@ -1,2 +1,3 @@
 before_install:
-  - curl https://gist.githubusercontent.com/kami30k/b610ce5efa5ae12c80a6/raw/ba93c641e3cb28940bc4c01fe47e7bf3ddd71bff/mecab_install.sh | bash
+  - sudo apt-get update
+  - sudo apt-get install mecab mecab-ipadic libmecab-dev
