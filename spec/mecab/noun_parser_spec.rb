@@ -1,11 +1,4 @@
 require 'spec_helper'
 
-describe Mecab::NounParser do
-  it 'has a version number' do
-    expect(Mecab::NounParser::VERSION).not_to be nil
-  end
-
-  it 'does something useful' do
-    expect(false).to eq(true)
-  end
+describe MeCab::NounParser do
 end
