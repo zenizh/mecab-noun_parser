@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe MeCab::NounParser do
-  let(:parser) { MeCab::NounParser.new }
   let(:nouns)  { parser.parse.nouns }
 
   before do
@@ -11,13 +10,25 @@ describe MeCab::NounParser do
     parser << 'Rubyはまつもと ゆきひろが個人で開発しているフリーソフトウェアです。'
   end
 
-  it 'should be sort' do
-    expect(nouns.first[:noun]).to eq 'Ruby'
-    expect(nouns.first[:count]).to eq 3
+  context 'default usage' do
+    let(:parser) { MeCab::NounParser.new }
+
+    it 'should be sort' do
+      expect(nouns.first[:noun]).to eq 'Ruby'
+      expect(nouns.first[:count]).to eq 3
+    end
+
+    it 'should be count' do
+      count = nouns.find { |noun| noun[:noun] == 'オブジェクト指向プログラミング' }.count
+      expect(count).to eq 2
+    end
   end
 
-  it 'should be count' do
-    count = nouns.find { |noun| noun[:noun] == 'オブジェクト指向プログラミング' }.count
-    expect(count).to eq 2
+  context 'except some words' do
+    let(:parser) { MeCab::NounParser.new(except: ['Ruby', 'Smalltalk']) }
+
+    it 'should not be include' do
+      expect(nouns.first[:noun]).not_to eq 'Ruby'
+    end
   end
 end
