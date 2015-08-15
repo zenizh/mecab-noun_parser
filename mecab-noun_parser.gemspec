@@ -1,10 +1,8 @@
 $:.unshift File.expand_path('../lib', __FILE__)
 
-require 'mecab/noun_parser/version'
-
 Gem::Specification.new do |s|
   s.name        = 'mecab-noun_parser'
-  s.version     = MeCab::NounParser::VERSION
+  s.version     = '0.1.0'
   s.authors     = 'kami'
   s.email       = 'kami30k@gmail.com'
 
