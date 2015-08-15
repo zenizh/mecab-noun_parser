@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = 'kami'
   s.email       = 'kami30k@gmail.com'
 
-  s.summary     = ''
-  s.description = ''
+  s.summary     = 'A noun parser for MeCab gem.'
+  s.description = 'A noun parser for MeCab gem.'
   s.homepage    = 'https://github.com/kami30k/mecab-noun_parser'
 
   s.files       = `git ls-files -z`.split("\x0")
