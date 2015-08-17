@@ -8,7 +8,7 @@ module MeCab
     end
 
     def <<(text)
-      @text << text
+      @text << text unless text.nil?
     end
 
     def parse
