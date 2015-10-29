@@ -4,11 +4,11 @@ Gem::Specification.new do |s|
   s.name        = 'mecab-noun_parser'
   s.version     = '0.1.1'
   s.authors     = 'kami'
-  s.email       = 'kami30k@gmail.com'
+  s.email       = 'hiroki.zenigami@gmail.com'
 
   s.summary     = 'A noun parser for MeCab gem.'
   s.description = 'A noun parser for MeCab gem.'
-  s.homepage    = 'https://github.com/kami30k/mecab-noun_parser'
+  s.homepage    = 'https://github.com/kami-zh/mecab-noun_parser'
 
   s.files       = `git ls-files -z`.split("\x0")
 

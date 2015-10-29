@@ -1,6 +1,6 @@
 # Mecab::NounParser
 
-[![Build Status](https://travis-ci.org/kami30k/mecab-noun_parser.svg)](https://travis-ci.org/kami30k/mecab-noun_parser)
+[![Build Status](https://travis-ci.org/kami-zh/mecab-noun_parser.svg)](https://travis-ci.org/kami-zh/mecab-noun_parser)
 [![Gem Version](https://badge.fury.io/rb/mecab-noun_parser.svg)](http://badge.fury.io/rb/mecab-noun_parser)
 
 This gem is a noun parser for [MeCab](https://github.com/markburns/mecab) gem.
@@ -61,4 +61,4 @@ parser = MeCab::NounParser.new(except: ['Smalltalk', 'Eiffel', ...])
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/kami30k/mecab-noun_parser.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kami-zh/mecab-noun_parser.
