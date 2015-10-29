@@ -2,7 +2,7 @@ $:.unshift File.expand_path('../lib', __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'mecab-noun_parser'
-  s.version     = '0.1.1'
+  s.version     = '0.1.2'
   s.authors     = 'kami'
   s.email       = 'hiroki.zenigami@gmail.com'
 
